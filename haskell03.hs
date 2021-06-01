@@ -51,4 +51,15 @@ calcExpr lista = [ x^2/2 | x <- lista, x^2/2>10]
 
 -- 13
 trSpaces :: String -> String
-trSpaces str = 
+trSpaces str = concat [ if elem x " " then ['-'] else [x] | x <- str]
+
+-- 14
+selectSnd :: [(Int,Int)] -> [Int]
+selectSnd lista = [ y | (x,y) <- lista ]
+
+multAB :: [(Int, Int)] -> [Int]
+multAB x = [ a*b | (a,b) <- x ]
+
+-- 15
+dotProd :: [Int] -> [Int] -> Int
+dotProd x y =  sum (multAB (zip x y))
